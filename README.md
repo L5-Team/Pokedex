@@ -1,2 +1,2 @@
-# xupingadex
-PokeDex baseada na PokéApi
+# Pokedex XP
+Pokedex baseada na PokéApi
