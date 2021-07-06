@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-    FormControl,
-    InputLabel,
-    Select,
-    MenuItem,
-} from "@material-ui/core";
+import { FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
 import { FilterArea, FilterItem } from "./styled";
 
 export default function Filter() {
@@ -22,42 +17,42 @@ export default function Filter() {
         <>
             <FilterArea>
                 <FilterItem>
-                    <FormControl variant="filled" style={{ minWidth: 180 }}>
-                        <InputLabel id="demo-simple-select-filled-label">
-                            Filtrar por Região
+                    <FormControl
+                        variant="filled"
+                        style={{ minWidth: 180 }}
+                    >
+                        <InputLabel>
+                        Filtrar por Região
                         </InputLabel>
                         <Select
-                            labelId="demo-simple-select-filled-label"
-                            id="demo-simple-select-filled"
+                            native
                             value={option1}
                             onChange={handleChange1}
                         >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
+                            <option aria-label="None" value="" />
+                            <option value={10}>Ten</option>
+                            <option value={20}>Twenty</option>
+                            <option value={30}>Thirty</option>
                         </Select>
                     </FormControl>
                 </FilterItem>
                 <FilterItem>
-                    <FormControl variant="filled" style={{ minWidth: 180 }}>
-                        <InputLabel id="demo-simple-select-filled-label">
-                            Filtrar por Tipo
+                    <FormControl
+                        variant="filled"
+                        style={{ minWidth: 180 }}
+                    >
+                        <InputLabel>
+                        Filtrar por Tipo
                         </InputLabel>
                         <Select
-                            labelId="demo-simple-select-filled-label"
-                            id="demo-simple-select-filled"
+                            native
                             value={option2}
                             onChange={handleChange2}
                         >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
+                            <option aria-label="None" value="" />
+                            <option value={10}>Ten</option>
+                            <option value={20}>Twenty</option>
+                            <option value={30}>Thirty</option>
                         </Select>
                     </FormControl>
                 </FilterItem>
