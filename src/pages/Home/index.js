@@ -41,9 +41,9 @@ export default function Home() {
         try {
             const url = `https://pokeapi.co/api/v2/pokemon?limit=151`;
             const res = await axios.get(url);
-            allPokemon.push(res.data.results);
+            allPokemon.push(res.data["results"]);
             setAllPokemon(allPokemon);
-            console.log(res);
+            console.log(allPokemon);
         } catch (e) {
             console.log(e);
         }
@@ -60,7 +60,6 @@ export default function Home() {
 
     useEffect(() => {
         getAllPokemon();
-        console.log(allPokemon)
     }, []);
 
     return (
@@ -132,6 +131,14 @@ export default function Home() {
                     })}
                 </div>
             )}
+
+      
+                <>
+                    {allPokemon.map((pokemon) => {
+                      <div>{pokemon.name}</div>
+                    })}
+                </>
+            
         </>
     );
 }
