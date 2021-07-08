@@ -90,3 +90,34 @@ export const SearchLogo = styled.img`
     height: 20px;
     animation: ${rotate} 1.5s linear infinite;
 `;
+
+// Pokemon Cards items
+
+export const CardArea = styled.div`
+    display: grid;
+    max-width: 18vw;
+    height: 230px;
+    background-color: red;
+    justify-content: center;
+    align-items: column;
+    padding: 0 20px 20px 20px;
+
+`;
+
+export const PokemonTitle = styled.p`
+    display: flex;
+    justify-content: center;
+
+`; 
+
+export const PokemonIcon = styled.img`
+    background-color: blue;
+`; 
+
+export const PokemonDesc = styled.span`
+    background-color: yellow;
+`; 
+
+export const PokemonType = styled.span`
+    background-color: green;
+`; 

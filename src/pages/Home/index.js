@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./home.css";
 import { TextField, InputAdornment } from "@material-ui/core";
-import { HeaderArea, LogoHeader, SearchHeader, SearchLogo } from "./styled";
+import {
+    HeaderArea,
+    LogoHeader,
+    SearchHeader,
+    SearchLogo,
+    CardArea,
+    PokemonTitle,
+    PokemonIcon,
+    PokemonDesc,
+    PokemonType,
+} from "./styled";
 import logo from "../../assets/images/plogo.png";
 import pokeball from "../../assets/images/pokeball.png";
 
@@ -9,6 +20,7 @@ export default function Home() {
     const [pokemon, setPokemon] = useState("");
     const [pokemonData, setPokemonData] = useState([]);
     const [pokemonType, setPokemonType] = useState("");
+    const [allPokemon, setAllPokemon] = useState([]);
 
     const getPokemon = async () => {
         const pokemonArray = [];
@@ -18,6 +30,19 @@ export default function Home() {
             pokemonArray.push(res.data);
             setPokemonType(res.data.types[0].type.name);
             setPokemonData(pokemonArray);
+        } catch (e) {
+            alert("Digite um nome valido!");
+            console.log(e);
+        }
+    };
+
+    const getAllPokemon = async () => {
+        const allPokemon = [];
+        try {
+            const url = `https://pokeapi.co/api/v2/pokemon?limit=151`;
+            const res = await axios.get(url);
+            allPokemon.push(res.data.results);
+            setAllPokemon(allPokemon);
             console.log(res);
         } catch (e) {
             console.log(e);
@@ -33,6 +58,11 @@ export default function Home() {
         getPokemon();
     };
 
+    useEffect(() => {
+        getAllPokemon();
+        console.log(allPokemon)
+    }, []);
+
     return (
         <>
             <HeaderArea>
@@ -40,65 +70,68 @@ export default function Home() {
                     <img src={logo} alt="Pokemon Logo" />
                 </LogoHeader>
                 <SearchHeader onSubmit={handleSubmit}>
-                        <TextField
-                            onChange={handleChange}
-                            autoComplete="off"
-                            noValidate
-                            label="Busque um Pokémon"
-                            variant="filled"
-                            fullWidth
-                            margin="normal"
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            InputProps={{
-                                endAdornment: (
-                                    <InputAdornment position="start">
-                                        <SearchLogo src={pokeball} />
-                                    </InputAdornment>
-                                ),
-                            }}
-                            autoFocus
-                        />
+                    <TextField
+                        onChange={handleChange}
+                        autoComplete="off"
+                        noValidate
+                        label="Busque um Pokémon"
+                        variant="filled"
+                        fullWidth
+                        margin="normal"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchLogo src={pokeball} />
+                                </InputAdornment>
+                            ),
+                        }}
+                        autoFocus
+                    />
                 </SearchHeader>
             </HeaderArea>
-            <div>
-                {pokemonData.map((data) => {
-                    return (
-                        <div className="container">
-                            <img src={data.sprites["front_default"]} />
-                            <div className="Table">
-                                <div className="TableBody">
-                                    <div className="TableRow">
-                                        <div className="TableCell">Type</div>
-                                        <div className="TableCell">
+            {pokemonData && (
+                <div>
+                    {pokemonData.map((data) => {
+                        return (
+                            <div className="flip-card">
+                                <div className="flip-card-inner">
+                                    <div
+                                        className={`flip-card-front ${pokemonType}`}
+                                    >
+                                        <h1 className="pokemon-title">
+                                            {data.name}
+                                        </h1>
+                                        <img
+                                            className="image"
+                                            src={data.sprites["front_default"]}
+                                            alt={data.name}
+                                        />
+                                        <p className="pokemon-type">
                                             {pokemonType}
-                                        </div>
+                                        </p>
                                     </div>
-                                    <div className="TableRow">
-                                        <div className="TableCell">Height</div>
-                                        <div className="TableCell">
-                                            {data.height}
-                                        </div>
-                                    </div>
-                                    <div className="TableRow">
-                                        <div className="TableCell">Weight</div>
-                                        <div className="TableCell">
-                                            {data.weight}
-                                        </div>
-                                    </div>
-                                    <div className="TableRow">
-                                        <div className="TableCell">Type</div>
-                                        <div className="TableCell">
+                                    <div
+                                        className={`flip-card-back ${pokemonType}`}
+                                    >
+                                        <h1 className="pokemon-title">
+                                            {data.name}
+                                        </h1>
+                                        <p className="pokemon-description">
+                                            Teste description
+                                        </p>
+                                        <p className="pokemon-type">
                                             {pokemonType}
-                                        </div>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    );
-                })}
-            </div>
+                        );
+                    })}
+                </div>
+            )}
         </>
     );
 }
