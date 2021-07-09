@@ -10,7 +10,7 @@ export default function Card({ pokemon }) {
             </div>
             <div className="Card__name">{pokemon.name}</div>
             <div className="Card__types">
-                {pokemon.types.map((type,i) => {
+                {pokemon.types.map((type, i) => {
                     return (
                         <div
                             key={i}
@@ -19,7 +19,9 @@ export default function Card({ pokemon }) {
                                 backgroundColor: pokemonType[type.type.name],
                             }}
                         >
-                            {type.type.name}
+                            <p className="Type__name">
+                                {type.type.name}
+                            </p>
                         </div>
                     );
                 })}

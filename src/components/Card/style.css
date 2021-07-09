@@ -3,7 +3,7 @@ p {
 }
 
 .Card {
-    background: white;
+    background: #f9cc02;
     border-radius: 10px;
 }
 
@@ -17,7 +17,14 @@ p {
 
 .Card__types {
     display: flex;
-    justify-content: center;    
+    justify-content: center;   
+}
+
+.Type__name {
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 11px;
 }
 
 .Card__type {
