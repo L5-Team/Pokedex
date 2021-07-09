@@ -25,11 +25,11 @@ const shake = keyframes`
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 `;
 
-const flip = keyframes `
-    0% {transform: scaleX(-1);}
-    50% {transform: scaleX(1);}
-    100% {transform: scaleX(-1);}
-`;
+// const flip = keyframes `
+//     0% {transform: scaleX(-1);}
+//     50% {transform: scaleX(1);}
+//     100% {transform: scaleX(-1);}
+// `;
 
 // Header Items
 

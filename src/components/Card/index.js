@@ -5,14 +5,15 @@ import pokemonType from "../../helpers/pokemonTypes";
 export default function Card({ pokemon }) {
     return (
         <div className="Card">
-            <div className="Card_img">
+            <div className="Card__img">
                 <img src={pokemon.sprites.front_default} alt="" />
             </div>
             <div className="Card__name">{pokemon.name}</div>
-            <div className="Card_types">
-                {pokemon.types.map((type) => {
+            <div className="Card__types">
+                {pokemon.types.map((type,i) => {
                     return (
                         <div
+                            key={i}
                             className="Card__type"
                             style={{
                                 backgroundColor: pokemonType[type.type.name],

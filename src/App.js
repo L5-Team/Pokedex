@@ -51,7 +51,7 @@ export default function App() {
         );
         setPokemonData(_pokemonData);
     };
-    console.log(pokemonData);
+    
     return (
         <>
             <Navbar />

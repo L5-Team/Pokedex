@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 // import axios from "axios";
 // import "./home.css";
 import { TextField, InputAdornment } from "@material-ui/core";
@@ -7,11 +7,11 @@ import {
     LogoHeader,
     SearchHeader,
     SearchLogo,
-    CardArea,
-    PokemonTitle,
-    PokemonIcon,
-    PokemonDesc,
-    PokemonType,
+    // CardArea,
+    // PokemonTitle,
+    // PokemonIcon,
+    // PokemonDesc,
+    // PokemonType,
 } from "./styled";
 import logo from "../../assets/images/plogo.png";
 import pokeball from "../../assets/images/pokeball.png";
