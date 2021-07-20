@@ -3,6 +3,7 @@ import { getAllPokemon, getPokemon } from "./services/pokemon";
 import "./App.css";
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
+import Loader from "./components/Loader";
 // import Routes from './Routes'
 
 export default function App() {
@@ -56,7 +57,7 @@ export default function App() {
         <>
             <Navbar />
             {loading ? (
-                <h1>Loading</h1>
+                <Loader/>
             ) : (
                 <>
                     <div className="btn">
