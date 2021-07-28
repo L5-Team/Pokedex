@@ -1,7 +1,7 @@
 import React from "react";
 // import axios from "axios";
 // import "./home.css";
-import { TextField, InputAdornment } from "@material-ui/core";
+import { TextField, InputAdornment, Grid } from "@material-ui/core";
 import {
     HeaderArea,
     LogoHeader,
@@ -65,33 +65,39 @@ export default function Navbar() {
     return (
         <>
             <HeaderArea>
-                <LogoHeader>
-                    <img src={logo} alt="Pokemon Logo" />
-                </LogoHeader>
-                <SearchHeader
-                // onSubmit={handleSubmit}
-                >
-                    <TextField
-                        // onChange={handleChange}
-                        autoComplete="off"
-                        noValidate
-                        label="Busque um Pokémon"
-                        variant="filled"
-                        fullWidth
-                        margin="normal"
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                        InputProps={{
-                            endAdornment: (
-                                <InputAdornment position="start">
-                                    <SearchLogo src={pokeball} />
-                                </InputAdornment>
-                            ),
-                        }}
-                        autoFocus
-                    />
-                </SearchHeader>
+                <Grid container >
+                    <Grid item xs={6} md={8}>
+                        <LogoHeader>
+                            <img src={logo} alt="Pokemon Logo" />
+                        </LogoHeader>
+                    </Grid>
+                    <SearchHeader
+                    // onSubmit={handleSubmit}
+                    >
+                        <Grid item xs={12} md={12}>
+                            <TextField
+                                // onChange={handleChange}
+                                autoComplete="off"
+                                noValidate
+                                label="Busque um Pokémon"
+                                variant="filled"
+                                fullWidth
+                                margin="normal"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="start">
+                                            <SearchLogo src={pokeball} />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                                autoFocus
+                            />
+                        </Grid>
+                    </SearchHeader>
+                </Grid>
             </HeaderArea>
         </>
     );

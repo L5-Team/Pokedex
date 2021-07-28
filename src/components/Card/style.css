@@ -42,7 +42,10 @@ p {
 }
 
 .Card__info {
-    margin-left: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .Card__data {

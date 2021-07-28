@@ -73,12 +73,12 @@ export const LogoHeader = styled.div`
 export const SearchHeader = styled.form`
     display: flex;
     align-items: center;
-    width: 24vw;
+    /* width: 24vw; */
     margin-right: 80px;
 
-    @media (max-width: 1023px) and (min-width: 768px) {
+    /* @media (max-width: 1023px) and (min-width: 768px) {
         width: 38vw;
-    }
+    } */
 
     /* @media (max-width: 767) {
         width: 100% !important;
