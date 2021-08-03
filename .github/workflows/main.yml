@@ -9,10 +9,7 @@ jobs:
     env:
       CI: false
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: front
+    
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
