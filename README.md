@@ -5,7 +5,9 @@
   <img src="https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white" />
 
   [![Git Hub Pages Deploy](https://github.com/L5-Team/Pokedex/actions/workflows/main.yml/badge.svg)](https://github.com/L5-Team/Pokedex/actions/workflows/main.yml)
-
+  
+   [Demo](https://l5-team.github.io/Pokedex/#/)
+  
 </div>
 
 <img src="demo.png" alt="Demo Pokedex">
